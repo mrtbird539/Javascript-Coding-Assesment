@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(51, 51, 51);
+    color: white;
+}
+
+header {
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+    position: relative;
+    background-color: rgb(51,51,51);
+    color: white;
+}
+
+.time {
+    text-align: right;
+}
+
+main {
+    margin: 3rem auto;
+    width: 50ch;
+    max-width: 90vw;
+}
+
+h1{
+    text-align: center;
+}
+
+#start-quiz{
+    text-align: center;
+}
+.btn {
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    margin: .1rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid transparent;
+    outline: none;
+    color: #1a1a1a;
+    background-color: rgb(55, 55, 255);
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    justify-content: center;
+  }
+  .btn:hover {
+    background-color: rgb(71, 71, 253);
+  }
