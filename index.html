@@ -9,9 +9,10 @@
   <body class="container-fluid">
     <header class="row">
         <div class= "col-3">View Highscores</div>
-        <div class = "col-3 time">Time: 0</div>
+        <div class = "col-3 time" id="time">Time: 0</div>
     </header>
     <main>
+      <!--Start screen-->
     <container id="intro">
       <h1>Coding Quiz Challenge</h1>
       <p>
@@ -19,15 +20,17 @@
         limit. Keep in mind that incorrect answers will penalize your score/time
         by ten seconds!
       </p>
-      <button class="btn col-12" id='start-quiz'>Start Quiz!</button>
+      <button class="button col-12" id='start-quiz'>Start Quiz!</button>
     </container>
+    <!--Question 1-->
     <container id="1">
       <h1>Commonly used data types DO NOT include:</h1>
-      <button type = "button" class = "btn">1. strings</button>
+      <button class = "btn">1. strings</button>
       <button type = "button" class = "btn">2. booleans</button>
       <button type = "button" class = "btn correct">3. alerts</button>
       <button type = "button" class = "btn">4. numbers</button>
     </container>
+    <!--Question 2-->
     <container id="2">
       <h1>The condition in an if / else statement is enclosed within ______.</h1>
       <button type = "button" class = "btn">1. quotes</button>
@@ -35,6 +38,7 @@
       <button type = "button" class = "btn correct">3. parentheses</button>
       <button type = "button" class = "btn">4. square brackets</button>
     </container>
+    <!--Question 3-->
     <container id="3">
       <h1>Arrays in JavaScript can be used to store ______.</h1>
       <button type = "button" class = "btn">1. numbers and strings</button>
@@ -42,6 +46,7 @@
       <button type = "button" class = "btn">3. booleans</button>
       <button type = "button" class = "btn correct">4. all of the above</button>
     </container>
+    <!--Question 4-->
     <container id="4">
       <h1>String values must be enclosed within _____ when being assigned to variables.</h1>
       <button type = "button" class = "btn">1. commas</button>
@@ -49,8 +54,9 @@
       <button type = "button" class = "btn correct">3. quotes</button>
       <button type = "button" class = "btn">4. parenthesis</button>
     </container>
+    <!--Question 5-->
     <container id="5">
-      <h1>a very useful tool used during development and debugging for printing content to the debugger is:</h1>
+      <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
       <button type = "button" class = "btn">1. JavaScript</button>
       <button type = "button" class = "btn">2. terminal / bash</button>
       <button type = "button" class = "btn">3. for loops</button>
@@ -58,9 +64,9 @@
     </container>
 
   <!--Final score screen-->
-    <form id="finalScore">
+    <form id="quiz-end">
       <h1>All done!</h1>
-      <p>Your final score is:</p>
+      <p id="final-score"></p>
       <p>Enter Initials <input></p>
       <button class = "btn">Submit</button>
     </form>
