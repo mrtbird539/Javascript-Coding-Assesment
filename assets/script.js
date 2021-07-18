@@ -35,6 +35,7 @@ function init() {
     HS.hide();
 }
 
+//check to see if quiz has been completed or not and bails to end screen if so
 function isQuizOver() {
     if (questionIndex < (questions.length - 1)) {
         questionIndex++;
@@ -117,15 +118,18 @@ viewHS.on("click", function () {
     scoreOrdering();
 })
 
+//Back button for High score page
 backBtn.on("click", function () {
     window.location.reload();
 })
 
+// clear button for high score page
 clearBtn.on("click", function () {
     hsList.empty()
     localStorage.clear();
 })
 
+//orders highscore list
 function scoreOrdering() {
     hsList.empty();
     highScores.sort(function (a, b) {
