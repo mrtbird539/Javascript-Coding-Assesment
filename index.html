@@ -3,73 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <title>Javascript Quiz</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
   </head>
   <body class="container-fluid">
     <header class="row">
-        <div class= "col-3">View Highscores</div>
-        <div class = "col-3 time" id="time">Time: 0</div>
+      <div class="col-3" id="viewHS">View Highscores</div>
+      <div class="col-3 time" id="time">Time: 0</div>
     </header>
     <main>
       <!--Start screen-->
-    <container id="intro">
-      <h1>Coding Quiz Challenge</h1>
-      <p>
-        Try to answer the following code-related questions within the time
-        limit. Keep in mind that incorrect answers will penalize your score/time
-        by ten seconds!
-      </p>
-      <button class="button col-12" id='start-quiz'>Start Quiz!</button>
-    </container>
-    <!--Question 1-->
-    <container id="1">
-      <h1>Commonly used data types DO NOT include:</h1>
-      <button class = "btn">1. strings</button>
-      <button type = "button" class = "btn">2. booleans</button>
-      <button type = "button" class = "btn correct">3. alerts</button>
-      <button type = "button" class = "btn">4. numbers</button>
-    </container>
-    <!--Question 2-->
-    <container id="2">
-      <h1>The condition in an if / else statement is enclosed within ______.</h1>
-      <button type = "button" class = "btn">1. quotes</button>
-      <button type = "button" class = "btn">2. curly brackets</button>
-      <button type = "button" class = "btn correct">3. parentheses</button>
-      <button type = "button" class = "btn">4. square brackets</button>
-    </container>
-    <!--Question 3-->
-    <container id="3">
-      <h1>Arrays in JavaScript can be used to store ______.</h1>
-      <button type = "button" class = "btn">1. numbers and strings</button>
-      <button type = "button" class = "btn">2. other arrays</button>
-      <button type = "button" class = "btn">3. booleans</button>
-      <button type = "button" class = "btn correct">4. all of the above</button>
-    </container>
-    <!--Question 4-->
-    <container id="4">
-      <h1>String values must be enclosed within _____ when being assigned to variables.</h1>
-      <button type = "button" class = "btn">1. commas</button>
-      <button type = "button" class = "btn">2. curly brackets</button>
-      <button type = "button" class = "btn correct">3. quotes</button>
-      <button type = "button" class = "btn">4. parenthesis</button>
-    </container>
-    <!--Question 5-->
-    <container id="5">
-      <h1>A very useful tool used during development and debugging for printing content to the debugger is:</h1>
-      <button type = "button" class = "btn">1. JavaScript</button>
-      <button type = "button" class = "btn">2. terminal / bash</button>
-      <button type = "button" class = "btn">3. for loops</button>
-      <button type = "button" class = "btn correct">4. console.log</button>
-    </container>
+      <container id="intro">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          score/time by ten seconds!
+        </p>
+        <button class="button col-12" id="start-quiz">Start Quiz!</button>
+      </container>
+      <!--Question 1-->
+      <container id="1">
+        <h1>Commonly used data types DO NOT include:</h1>
+        <button class="btn wrong">1. strings</button>
+        <button type="button" class="btn wrong">2. booleans</button>
+        <button type="button" class="btn correct">3. alerts</button>
+        <button type="button" class="btn wrong">4. numbers</button>
+      </container>
+      <!--Question 2-->
+      <container id="2">
+        <h1>
+          The condition in an if / else statement is enclosed within ______.
+        </h1>
+        <button type="button" class="btn wrong">1. quotes</button>
+        <button type="button" class="btn wrong">2. curly brackets</button>
+        <button type="button" class="btn correct">3. parentheses</button>
+        <button type="button" class="btn wrong">4. square brackets</button>
+      </container>
+      <!--Question 3-->
+      <container id="3">
+        <h1>Arrays in JavaScript can be used to store ______.</h1>
+        <button type="button" class="btn wrong">1. numbers and strings</button>
+        <button type="button" class="btn wrong">2. other arrays</button>
+        <button type="button" class="btn wrong">3. booleans</button>
+        <button type="button" class="btn correct">4. all of the above</button>
+      </container>
+      <!--Question 4-->
+      <container id="4">
+        <h1>
+          String values must be enclosed within _____ when being assigned to
+          variables.
+        </h1>
+        <button type="button" class="btn wrong">1. commas</button>
+        <button type="button" class="btn wrong">2. curly brackets</button>
+        <button type="button" class="btn correct">3. quotes</button>
+        <button type="button" class="btn wrong">4. parenthesis</button>
+      </container>
+      <!--Question 5-->
+      <container id="5">
+        <h1>
+          A very useful tool used during development and debugging for printing
+          content to the debugger is:
+        </h1>
+        <button type="button" class="btn wrong">1. JavaScript</button>
+        <button type="button" class="btn wrong">2. terminal / bash</button>
+        <button type="button" class="btn wrong">3. for loops</button>
+        <button type="button" class="btn correct">4. console.log</button>
+      </container>
+      <h2 id="message" class = "mt-5"></h2>
+      <!--Final score screen-->
+      <form id="quiz-end">
+        <h1>All done!</h1>
+        <p id="final-score"></p>
+        <p>Enter Initials <input id="initials" name="initials"/></p>
+        <button class="btn" id="subbtn">Submit</button>
+      </form>
+      <container id="hs">
+        <h1 class="text-center">Highscores</h1>
+        <ul class="list-group" id="hsList">
+        </ul>
+        <div class="d-flex mx-auto justify-content-between">
+        <button class="btn" id="back">Go Back</button>
+        <button class="btn" id="clear">Clear Scores</button>
+      </div>
+      </container>
 
-  <!--Final score screen-->
-    <form id="quiz-end">
-      <h1>All done!</h1>
-      <p id="final-score"></p>
-      <p>Enter Initials <input></p>
-      <button class = "btn">Submit</button>
-    </form>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

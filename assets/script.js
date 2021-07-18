@@ -11,19 +11,28 @@ const quizEnd = $("#quiz-end");
 const correctAnswer = $(".correct");
 const container = $("container");
 const button = $(".btn");
+const rightOrWrong = $("#message");
+const subBtn = $("#subbtn");
+const HS = $("#hs");
+const viewHS = $("#viewHS");
+const backBtn = $("#back");
+const clearBtn = $("#clear");
+const hsList = $("#hsList")
 let timeLeft = 75;
-let userInfo = [{name: "",score: 0}];
 let questions = [question1, question2, question3, question4, question5];
 questionIndex = 0
 let timeInterval;
+let highScores = JSON.parse(localStorage.getItem("Highscores")) || [];
 //Sets page init
 function init() {
+    questionBlock.show();
     question1.hide();
     question2.hide();
     question3.hide();
     question4.hide();
     question5.hide();
     quizEnd.hide();
+    HS.hide();
 }
 
 function isQuizOver() {
@@ -33,10 +42,23 @@ function isQuizOver() {
     }
     else {
         clearInterval(timeInterval);
+        rightOrWrong.text("");
         timer.text("Time: " + timeLeft);
-        userInfo.score = timeLeft;
-        finalScore.text("Your final score is: " + userInfo.score)
+        finalScore.text("Your final score is: " + timeLeft);
         quizEnd.show();
+
+        subBtn.on("click", function (event) {
+            event.preventDefault();
+            let scores = {
+                name: $("#initials").val().trim(),
+                score: timeLeft
+            }
+            highScores.push(scores);
+            localStorage.setItem("Highscores", JSON.stringify(highScores));
+            scoreOrdering();
+            quizEnd.hide();
+            HS.show();
+        })
     }
 }
 
@@ -48,20 +70,21 @@ function questionCycle() {
         if ($(event.target).hasClass("correct")) {
             console.log("worked");
             questions[questionIndex].hide();
+            rightOrWrong.text("Correct!")
             isQuizOver();
             return;
         }
-        else {
+        else if ($(event.target).hasClass("wrong")) {
             console.log("no");
             questions[questionIndex].hide();
             timeLeft = timeLeft - 10;
+            rightOrWrong.text("Wrong");
             isQuizOver();
             return;
         }
     })
 }
 
-// Timer that counts down from 5
 // Timer that starts when you start the quiz.
 function countdown() {
     timeInterval = setInterval(function () {
@@ -80,3 +103,41 @@ startBtn.on("click", function () {
     question1.show();
     questionCycle();
 })
+
+viewHS.on("click", function () {
+    rightOrWrong.text("");
+    questionBlock.hide();
+    question1.hide();
+    question2.hide();
+    question3.hide();
+    question4.hide();
+    question5.hide();
+    quizEnd.hide();
+    HS.show()
+    scoreOrdering();
+})
+
+backBtn.on("click", function () {
+    window.location.reload();
+})
+
+clearBtn.on("click", function () {
+    hsList.empty()
+    localStorage.clear();
+})
+
+function scoreOrdering() {
+    hsList.empty();
+    highScores.sort(function (a, b) {
+        return b.score - a.score;
+    });
+    for (let i = 0; i < highScores.length; i++) {
+        let score = highScores[i]
+        if (i % 2) {
+            hsList.append('<li class="list-group-item bg-secondary">' + score.score + ": " + score.name + "</li>")
+        }
+        else {
+            hsList.append('<li class="list-group-item">' + score.score + ": " + score.name + "</li>")
+        }
+    }
+}

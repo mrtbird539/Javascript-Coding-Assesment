@@ -12,6 +12,16 @@ header {
     color: white;
 }
 
+#message {
+    font-size: 16px;
+    border-top: 2px darkgray solid;
+    color: darkgray;
+}
+
+#viewHS {
+    color: purple;
+    cursor:pointer;
+}
 .time {
     text-align: right;
 }
@@ -40,11 +50,24 @@ main {
     justify-content: center;
 }
 
+#hs.btn{
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    margin: 10px; 
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid transparent;
+    outline: none;
+    color: #1a1a1a;
+    background-color: rgb(55, 55, 255);
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
 .btn {
     display: block;
     cursor: pointer;
     padding: 0.5rem 1.2rem;
-    margin-top: 10px; 
+    margin: 10px; 
     font-size: 1rem;
     border-radius: 0.3rem;
     border: 1px solid transparent;
